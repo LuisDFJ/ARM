@@ -1,0 +1,194 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000008000000 0x0000000000200000 xr
+SRAM             0x0000000020000000 0x0000000000080000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD main.o
+LOAD startup_stm32f767xx.o
+
+.text           0x0000000008000000      0x290
+ *(.isr_vector)
+ .isr_vector    0x0000000008000000      0x1f4 startup_stm32f767xx.o
+                0x0000000008000000                vectors
+ *(.text)
+ .text          0x00000000080001f4       0x10 main.o
+                0x00000000080001f4                _main
+ .text          0x0000000008000204       0x8c startup_stm32f767xx.o
+                0x0000000008000204                RTC_WKUP_Handler
+                0x0000000008000204                DMA1Stream4_Handler
+                0x0000000008000204                FLASH_Handler
+                0x0000000008000204                SVCall_Handler
+                0x0000000008000204                DMA1Stream1_Handler
+                0x0000000008000204                DMA2_Stream7_Handler
+                0x0000000008000204                DFSDM1_FLT3_Handler
+                0x0000000008000204                OTG_HS_Handler
+                0x0000000008000204                HardFault_Handler
+                0x0000000008000204                DMA2_Stream3_Handler
+                0x0000000008000204                SysTick_Handler
+                0x0000000008000204                USART3_Handler
+                0x0000000008000204                PendSV_Handler
+                0x0000000008000204                NMI_Handler
+                0x0000000008000204                TIM6_DAC_Handler
+                0x0000000008000204                CAN1_RX1_Handler
+                0x0000000008000204                EXTI15_10_Handler
+                0x0000000008000204                ADC_Handler
+                0x0000000008000204                HASH_RNG_Handler
+                0x0000000008000204                I2C1_EV_Handler
+                0x0000000008000204                DMA1Strean6_Handler
+                0x0000000008000204                TAMP_STAMP_Handler
+                0x0000000008000204                I2C3_ER_Handler
+                0x0000000008000204                WWDG_Handler
+                0x0000000008000204                EXTI4_Handler
+                0x0000000008000204                I2C3_EV_Handler
+                0x0000000008000204                SPI5_Stream1_Handler
+                0x0000000008000204                DMA2_Stream4_Handler
+                0x0000000008000204                DMA1_Stream7_Handler
+                0x0000000008000204                DFSDM1_FLT0_Handler
+                0x0000000008000204                OTG_FS_Handler
+                0x0000000008000204                ETH_WKUP_Handler
+                0x0000000008000204                TIM1_BRK_TIM9_Handler
+                0x0000000008000204                I2C1_ER_Handler
+                0x0000000008000204                I2C4_EV_Handler
+                0x0000000008000204                CAN3_SCE_Handler
+                0x0000000008000204                I2C4_ER_Handler
+                0x0000000008000204                DMA1Stream3_Handler
+                0x0000000008000204                UsageFault_Handler
+                0x0000000008000204                TIM1_UP_TIM10_Handler
+                0x0000000008000204                CAN1_RX0_Handler
+                0x0000000008000204                TIM1_CC_Handler
+                0x0000000008000204                I2C2_ER_Handler
+                0x0000000008000204                USART6_Handler
+                0x0000000008000204                TIM8_CC_Handler
+                0x0000000008000204                HDMI_CEC_Handler
+                0x0000000008000204                SAI2_Handler
+                0x0000000008000204                CAN1_SCE_Handler
+                0x0000000008000204                OTG_HS_EP1_OUT_Handler
+                0x0000000008000204                EXTI1_Handler
+                0x0000000008000204                DMA1Strean2_Handler
+                0x0000000008000204                FMC_Handler
+                0x0000000008000204                EXTI3_Handler
+                0x0000000008000204                CRYP_Handler
+                0x0000000008000204                EXTI2_Handler
+                0x0000000008000204                UART4_Handler
+                0x0000000008000204                CAN2_RX1_Handler
+                0x0000000008000204                EXTI9_5_Handler
+                0x0000000008000204                SPDIFRX_Handler
+                0x0000000008000204                TIM2_Handler
+                0x0000000008000204                USART1_Handler
+                0x0000000008000204                CAN2_SCE_Handler
+                0x0000000008000204                SAI1_Stream3_Handler
+                0x0000000008000204                TIM3_Handler
+                0x0000000008000204                DSIHOST_Handler
+                0x0000000008000204                DMA2_Stream6_Handler
+                0x0000000008000204                Default_Handler
+                0x0000000008000204                LP_Timer1_Handler
+                0x0000000008000204                DCMI_Handler
+                0x0000000008000204                TIM1_TRG_COM_TIM11_Handler
+                0x0000000008000204                DMA1Strean5_Handler
+                0x0000000008000204                RTC_Alarm_Handler
+                0x0000000008000204                TIM4_Handler
+                0x0000000008000204                SPI6_Stream2_Handler
+                0x0000000008000204                TIM8_UP_TIM13_Handler
+                0x0000000008000204                CAN2_TX_Handler
+                0x0000000008000204                SPI2_Handler
+                0x0000000008000204                SDMMC1_Handler
+                0x0000000008000204                DMA2_Stream1_Handler
+                0x0000000008000204                DMA1Stream0_Handler
+                0x0000000008000204                MemManage_Handler
+                0x0000000008000204                EXTI0_Handler
+                0x0000000008000204                TIM8_BRK_TIM12_Handler
+                0x0000000008000204                CAN2_RX0_Handler
+                0x0000000008000204                DMA2D_Handler
+                0x0000000008000204                CAN3_RX1_Handler
+                0x0000000008000204                DMA2_Stream5_Handler
+                0x0000000008000204                USART2_Handler
+                0x0000000008000204                ETH_Handler
+                0x0000000008000204                SPI1_Handler
+                0x0000000008000204                MDIOS_Handler
+                0x0000000008000204                I2C2_EV_Handler
+                0x0000000008000204                UART7_DAC_Handler
+                0x0000000008000204                DMA2_Stream2_Handler
+                0x0000000008000204                SPI3_Handler
+                0x0000000008000204                UART8_Handler
+                0x0000000008000204                CAN3_RX0_Handler
+                0x0000000008000204                DMA2_Stream0_Handler
+                0x0000000008000204                RCC_Handler
+                0x0000000008000204                PVD_Handler
+                0x0000000008000204                SDMMC2_Handler
+                0x0000000008000204                UART5_Handler
+                0x0000000008000204                DFSDM1_FLT1_Handler
+                0x0000000008000204                TIM5_Handler
+                0x0000000008000204                QuadSPI_Handler
+                0x0000000008000204                TIM7_Handler
+                0x0000000008000204                TIM8_TRG_COM_TIM14_Handler
+                0x0000000008000204                LCD_TFT_Stream4_Handler
+                0x0000000008000204                LCD_TFT_Error_Handler
+                0x0000000008000204                CAN1_TX_Handler
+                0x0000000008000204                FPU_Handler
+                0x0000000008000204                SPI4_Stream0_Handler
+                0x0000000008000204                DFSDM1_FLT2_Handler
+                0x0000000008000204                BusFault_Handler
+                0x0000000008000204                DebugMonitor_Handler
+                0x0000000008000204                CAN3_TX_Handler
+                0x0000000008000204                OTG_HS_WKUP_Handler
+                0x0000000008000204                OTG_FS_WKUP_Handler
+                0x0000000008000204                OTG_HS_EP1_IN_Handler
+                0x000000000800020a                Reset_Handler
+ *(.rodata)
+                0x0000000008000290                . = ALIGN (0x4)
+                0x0000000008000290                _etext = .
+
+.glue_7         0x0000000008000290        0x0
+ .glue_7        0x0000000008000290        0x0 linker stubs
+
+.glue_7t        0x0000000008000290        0x0
+ .glue_7t       0x0000000008000290        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008000290        0x0
+ .vfp11_veneer  0x0000000008000290        0x0 linker stubs
+
+.v4_bx          0x0000000008000290        0x0
+ .v4_bx         0x0000000008000290        0x0 linker stubs
+
+.iplt           0x0000000008000290        0x0
+ .iplt          0x0000000008000290        0x0 main.o
+
+.rel.dyn        0x0000000008000290        0x0
+ .rel.iplt      0x0000000008000290        0x0 main.o
+
+.data           0x0000000020000000        0x8 load address 0x0000000008000290
+                0x0000000020000000                _sdata = .
+ *(.data)
+ .data          0x0000000020000000        0x8 main.o
+ .data          0x0000000020000008        0x0 startup_stm32f767xx.o
+                0x0000000020000008                . = ALIGN (0x4)
+                0x0000000020000008                _edata = .
+
+.igot.plt       0x0000000020000008        0x0 load address 0x0000000008000298
+ .igot.plt      0x0000000020000008        0x0 main.o
+
+.bss            0x0000000020000008        0x0 load address 0x0000000008000298
+                0x0000000020000008                _sbss = .
+ *(.bss)
+ .bss           0x0000000020000008        0x0 main.o
+ .bss           0x0000000020000008        0x0 startup_stm32f767xx.o
+                0x0000000020000008                . = ALIGN (0x4)
+                0x0000000020000008                _ebss = .
+OUTPUT(final.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x0000000000000000       0x2a
+ .ARM.attributes
+                0x0000000000000000       0x1c main.o
+ .ARM.attributes
+                0x000000000000001c       0x2e startup_stm32f767xx.o
+
+.comment        0x0000000000000000       0x59
+ .comment       0x0000000000000000       0x59 startup_stm32f767xx.o
+                                         0x5a (size before relaxing)
