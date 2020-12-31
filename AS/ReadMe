@@ -1,0 +1,9 @@
+Openocd:
+
+openocd -f board/st_nucleo_f7.cfg
+gdb_multiarch
+set architecture arm
+target remote localhost:3333
+monitor reset halt
+monitor reg
+monitor bp 0x080001f4 2 hw

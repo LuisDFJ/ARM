@@ -1,0 +1,238 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+tasks               0x18              debug/RTOS.o
+stackTasks          0x180             debug/RTOS.o
+pCurrentTask        0x4               debug/RTOS.o
+pTaskInit           0x4               debug/RTOS.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000008000000 0x0000000000200000 xr
+SRAM             0x0000000020000000 0x0000000000080000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD debug/main.o
+LOAD debug/startup_stm32f767xx.o
+LOAD debug/RTOS.o
+LOAD debug/setUpPSP.o
+LOAD debug/SysTick_Handlers.o
+
+.text           0x0000000008000000      0x6bc
+ *(.isr_vector)
+ .isr_vector    0x0000000008000000      0x1f4 debug/startup_stm32f767xx.o
+                0x0000000008000000                vectors
+ *(.text)
+ .text          0x00000000080001f4      0x204 debug/main.o
+                0x00000000080001f4                task3
+                0x0000000008000298                task2
+                0x000000000800033c                task1
+                0x00000000080003e0                main
+ .text          0x00000000080003f8       0x8c debug/startup_stm32f767xx.o
+                0x00000000080003f8                RTC_WKUP_Handler
+                0x00000000080003f8                DMA1Stream4_Handler
+                0x00000000080003f8                FLASH_Handler
+                0x00000000080003f8                SVCall_Handler
+                0x00000000080003f8                DMA1Stream1_Handler
+                0x00000000080003f8                DMA2_Stream7_Handler
+                0x00000000080003f8                DFSDM1_FLT3_Handler
+                0x00000000080003f8                OTG_HS_Handler
+                0x00000000080003f8                HardFault_Handler
+                0x00000000080003f8                DMA2_Stream3_Handler
+                0x00000000080003f8                USART3_Handler
+                0x00000000080003f8                PendSV_Handler
+                0x00000000080003f8                NMI_Handler
+                0x00000000080003f8                TIM6_DAC_Handler
+                0x00000000080003f8                CAN1_RX1_Handler
+                0x00000000080003f8                EXTI15_10_Handler
+                0x00000000080003f8                ADC_Handler
+                0x00000000080003f8                HASH_RNG_Handler
+                0x00000000080003f8                I2C1_EV_Handler
+                0x00000000080003f8                DMA1Strean6_Handler
+                0x00000000080003f8                TAMP_STAMP_Handler
+                0x00000000080003f8                I2C3_ER_Handler
+                0x00000000080003f8                WWDG_Handler
+                0x00000000080003f8                EXTI4_Handler
+                0x00000000080003f8                I2C3_EV_Handler
+                0x00000000080003f8                SPI5_Stream1_Handler
+                0x00000000080003f8                DMA2_Stream4_Handler
+                0x00000000080003f8                DMA1_Stream7_Handler
+                0x00000000080003f8                DFSDM1_FLT0_Handler
+                0x00000000080003f8                OTG_FS_Handler
+                0x00000000080003f8                ETH_WKUP_Handler
+                0x00000000080003f8                TIM1_BRK_TIM9_Handler
+                0x00000000080003f8                I2C1_ER_Handler
+                0x00000000080003f8                I2C4_EV_Handler
+                0x00000000080003f8                CAN3_SCE_Handler
+                0x00000000080003f8                I2C4_ER_Handler
+                0x00000000080003f8                DMA1Stream3_Handler
+                0x00000000080003f8                UsageFault_Handler
+                0x00000000080003f8                TIM1_UP_TIM10_Handler
+                0x00000000080003f8                CAN1_RX0_Handler
+                0x00000000080003f8                TIM1_CC_Handler
+                0x00000000080003f8                I2C2_ER_Handler
+                0x00000000080003f8                USART6_Handler
+                0x00000000080003f8                TIM8_CC_Handler
+                0x00000000080003f8                HDMI_CEC_Handler
+                0x00000000080003f8                SAI2_Handler
+                0x00000000080003f8                CAN1_SCE_Handler
+                0x00000000080003f8                OTG_HS_EP1_OUT_Handler
+                0x00000000080003f8                EXTI1_Handler
+                0x00000000080003f8                DMA1Strean2_Handler
+                0x00000000080003f8                FMC_Handler
+                0x00000000080003f8                EXTI3_Handler
+                0x00000000080003f8                CRYP_Handler
+                0x00000000080003f8                EXTI2_Handler
+                0x00000000080003f8                UART4_Handler
+                0x00000000080003f8                CAN2_RX1_Handler
+                0x00000000080003f8                EXTI9_5_Handler
+                0x00000000080003f8                SPDIFRX_Handler
+                0x00000000080003f8                TIM2_Handler
+                0x00000000080003f8                USART1_Handler
+                0x00000000080003f8                CAN2_SCE_Handler
+                0x00000000080003f8                SAI1_Stream3_Handler
+                0x00000000080003f8                TIM3_Handler
+                0x00000000080003f8                DSIHOST_Handler
+                0x00000000080003f8                DMA2_Stream6_Handler
+                0x00000000080003f8                Default_Handler
+                0x00000000080003f8                LP_Timer1_Handler
+                0x00000000080003f8                DCMI_Handler
+                0x00000000080003f8                TIM1_TRG_COM_TIM11_Handler
+                0x00000000080003f8                DMA1Strean5_Handler
+                0x00000000080003f8                RTC_Alarm_Handler
+                0x00000000080003f8                TIM4_Handler
+                0x00000000080003f8                SPI6_Stream2_Handler
+                0x00000000080003f8                TIM8_UP_TIM13_Handler
+                0x00000000080003f8                CAN2_TX_Handler
+                0x00000000080003f8                SPI2_Handler
+                0x00000000080003f8                SDMMC1_Handler
+                0x00000000080003f8                DMA2_Stream1_Handler
+                0x00000000080003f8                DMA1Stream0_Handler
+                0x00000000080003f8                MemManage_Handler
+                0x00000000080003f8                EXTI0_Handler
+                0x00000000080003f8                TIM8_BRK_TIM12_Handler
+                0x00000000080003f8                CAN2_RX0_Handler
+                0x00000000080003f8                DMA2D_Handler
+                0x00000000080003f8                CAN3_RX1_Handler
+                0x00000000080003f8                DMA2_Stream5_Handler
+                0x00000000080003f8                USART2_Handler
+                0x00000000080003f8                ETH_Handler
+                0x00000000080003f8                SPI1_Handler
+                0x00000000080003f8                MDIOS_Handler
+                0x00000000080003f8                I2C2_EV_Handler
+                0x00000000080003f8                UART7_DAC_Handler
+                0x00000000080003f8                DMA2_Stream2_Handler
+                0x00000000080003f8                SPI3_Handler
+                0x00000000080003f8                UART8_Handler
+                0x00000000080003f8                CAN3_RX0_Handler
+                0x00000000080003f8                DMA2_Stream0_Handler
+                0x00000000080003f8                RCC_Handler
+                0x00000000080003f8                PVD_Handler
+                0x00000000080003f8                SDMMC2_Handler
+                0x00000000080003f8                UART5_Handler
+                0x00000000080003f8                DFSDM1_FLT1_Handler
+                0x00000000080003f8                TIM5_Handler
+                0x00000000080003f8                QuadSPI_Handler
+                0x00000000080003f8                TIM7_Handler
+                0x00000000080003f8                TIM8_TRG_COM_TIM14_Handler
+                0x00000000080003f8                LCD_TFT_Stream4_Handler
+                0x00000000080003f8                LCD_TFT_Error_Handler
+                0x00000000080003f8                CAN1_TX_Handler
+                0x00000000080003f8                FPU_Handler
+                0x00000000080003f8                SPI4_Stream0_Handler
+                0x00000000080003f8                DFSDM1_FLT2_Handler
+                0x00000000080003f8                BusFault_Handler
+                0x00000000080003f8                DebugMonitor_Handler
+                0x00000000080003f8                CAN3_TX_Handler
+                0x00000000080003f8                OTG_HS_WKUP_Handler
+                0x00000000080003f8                OTG_FS_WKUP_Handler
+                0x00000000080003f8                OTG_HS_EP1_IN_Handler
+                0x00000000080003fe                Reset_Handler
+ .text          0x0000000008000484      0x210 debug/RTOS.o
+                0x000000000800051c                SysTick_Handler
+                0x0000000008000574                scheduleRTOS
+                0x00000000080005b4                setUpRTOS
+                0x000000000800061c                startRTOS
+ .text          0x0000000008000694       0x1c debug/setUpPSP.o
+                0x0000000008000694                pTaskMagic
+ .text          0x00000000080006b0        0xa debug/SysTick_Handlers.o
+                0x00000000080006b0                saveContext
+ *(.rodata)
+                0x00000000080006bc                . = ALIGN (0x4)
+ *fill*         0x00000000080006ba        0x2 
+                0x00000000080006bc                _etext = .
+
+.glue_7         0x00000000080006bc        0x0
+ .glue_7        0x00000000080006bc        0x0 linker stubs
+
+.glue_7t        0x00000000080006bc        0x0
+ .glue_7t       0x00000000080006bc        0x0 linker stubs
+
+.vfp11_veneer   0x00000000080006bc        0x0
+ .vfp11_veneer  0x00000000080006bc        0x0 linker stubs
+
+.v4_bx          0x00000000080006bc        0x0
+ .v4_bx         0x00000000080006bc        0x0 linker stubs
+
+.iplt           0x00000000080006bc        0x0
+ .iplt          0x00000000080006bc        0x0 debug/main.o
+
+.rel.dyn        0x00000000080006bc        0x0
+ .rel.iplt      0x00000000080006bc        0x0 debug/main.o
+
+.data           0x0000000020000000       0x10 load address 0x00000000080006bc
+                0x0000000020000000                _sdata = .
+ *(.data)
+ .data          0x0000000020000000        0xc debug/main.o
+                0x0000000020000000                pTask
+ .data          0x000000002000000c        0x0 debug/startup_stm32f767xx.o
+ .data          0x000000002000000c        0x4 debug/RTOS.o
+                0x000000002000000c                controlMode
+ .data          0x0000000020000010        0x0 debug/setUpPSP.o
+ .data          0x0000000020000010        0x0 debug/SysTick_Handlers.o
+                0x0000000020000010                . = ALIGN (0x4)
+                0x0000000020000010                _edata = .
+
+.igot.plt       0x0000000020000010        0x0 load address 0x00000000080006cc
+ .igot.plt      0x0000000020000010        0x0 debug/main.o
+
+.bss            0x0000000020000010      0x1ac load address 0x00000000080006cc
+                0x0000000020000010                _sbss = .
+ *(.bss)
+ .bss           0x0000000020000010        0xc debug/main.o
+ .bss           0x000000002000001c        0x0 debug/startup_stm32f767xx.o
+ .bss           0x000000002000001c        0x0 debug/RTOS.o
+ .bss           0x000000002000001c        0x0 debug/setUpPSP.o
+ .bss           0x000000002000001c        0x0 debug/SysTick_Handlers.o
+                0x000000002000001c                . = ALIGN (0x4)
+                0x000000002000001c                _ebss = .
+ COMMON         0x000000002000001c      0x1a0 debug/RTOS.o
+                0x000000002000001c                tasks
+                0x0000000020000034                stackTasks
+                0x00000000200001b4                pCurrentTask
+                0x00000000200001b8                pTaskInit
+OUTPUT(./debug/final.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x59
+ .comment       0x0000000000000000       0x59 debug/main.o
+                                         0x5a (size before relaxing)
+ .comment       0x0000000000000059       0x5a debug/startup_stm32f767xx.o
+ .comment       0x0000000000000059       0x5a debug/RTOS.o
+
+.ARM.attributes
+                0x0000000000000000       0x2c
+ .ARM.attributes
+                0x0000000000000000       0x2e debug/main.o
+ .ARM.attributes
+                0x000000000000002e       0x2e debug/startup_stm32f767xx.o
+ .ARM.attributes
+                0x000000000000005c       0x2e debug/RTOS.o
+ .ARM.attributes
+                0x000000000000008a       0x1c debug/setUpPSP.o
+ .ARM.attributes
+                0x00000000000000a6       0x1c debug/SysTick_Handlers.o
